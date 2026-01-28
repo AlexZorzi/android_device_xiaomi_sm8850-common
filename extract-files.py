@@ -127,6 +127,11 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .add_needed('libaudiobase.so')
         .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
+    'vendor/etc/hal_uuid_map_config.xml': blob_fixup()
+        .regex_replace(
+            r'(\n\n)?\s*<!-- STM KEYMINT[\s\S]*?</uuid_ref_do>',
+            '',
+        ),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
