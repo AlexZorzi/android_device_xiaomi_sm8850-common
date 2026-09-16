@@ -261,6 +261,7 @@ vendor/etc/vintf/manifest/bttpi-saidl.xml
 vendor/etc/vintf/manifest/fm_hci.xml
 vendor/etc/vintf/manifest/manifest_btaudiocoreservices_qti.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.bluetooth.btavsprovider.xml
+vendor/etc/vintf/manifest/vendor.qti.hardware.bluetooth.xpanprovider.xml
 vendor/lib64/btaudio_offload_if.so
 vendor/lib64/hw/android.hardware.bluetooth.audio_sw.so;DISABLE_DEPS
 vendor/lib64/hw/android.hardware.bluetooth.audio-impl-qti.so
