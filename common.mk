@@ -274,6 +274,7 @@ PRODUCT_PACKAGES += \
     FrameworkResOverlayXiaomi \
     NcmTetheringOverlay \
     SettingsOverlayXiaomi \
+    SecureElementOverlayXiaomi \
     SystemUIOverlayXiaomi \
     TelephonyResXiaomi \
     WifiOverlayXiaomi

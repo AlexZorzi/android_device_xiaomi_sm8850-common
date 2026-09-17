@@ -1,7 +1,6 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Xiaomi 17 Pro Max (OS3.0.315.0.WPBCNXM). 
+## are from Xiaomi 17 Pro Max (OS3.0.319.0.WPBCNXM). 
 
-# libframemaster.so is commonized due to unique requirements on myron (D2/novatek visdisplaysrv)
 # libmialgo.so and libcamxcommonutils are on device specific
 
 # ACDB
@@ -556,9 +555,6 @@ vendor/lib64/libqcmaputils.so
 vendor/lib64/libqdi.so
 vendor/lib64/vendor.qti.data.factoryservice-V2-ndk.so
 vendor/lib64/vendor.qti.hardware.data.cneaidlservice.internal.server-V2-ndk.so
-
-# Data (IPACM)
-vendor/etc/vintf/manifest/vendor.qti.hardware.tetheroffload.service.xml
 
 # Display
 vendor/etc/displayconfig/display_id_4630946850534658451.xml
