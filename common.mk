@@ -213,6 +213,10 @@ PRODUCT_COPY_FILES += \
 
 # Keymint
 PRODUCT_PACKAGES += \
+    android.hardware.security.keymint3-service.strongbox.nxp \
+    android.hardware.weaver-service.nxp
+
+PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore.xml
 
 PRODUCT_COPY_FILES += \

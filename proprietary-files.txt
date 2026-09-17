@@ -1681,6 +1681,7 @@ vendor/etc/init/android.hardware.secure_element-service.qti.rc
 vendor/etc/permissions/com.android.se.xml
 vendor/etc/vintf/manifest/android.hardware.secure_element.xml
 vendor/etc/vintf/manifest/secure_element-service.xml
+vendor/etc/hal_uuid_map_config.xml;SYMLINK=hal_uuid_map_pudding.xml,hal_uuid_map_pandora.xml,hal_uuid_map_popsicle.xml,hal_uuid_map_nezha.xml,hal_uuid_map_myron.xml,hal_uuid_map_byron.xml,hal_uuid_map_athens.xml,hal_uuid_map_songyuan.xml;TRYSRCFIRST
 vendor/lib64/hw/libEseUtils.so
 vendor/lib64/libesesbprovision.so
 vendor/lib64/libGPQeSE.so
