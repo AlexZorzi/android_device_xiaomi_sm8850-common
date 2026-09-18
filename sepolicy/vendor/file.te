@@ -30,6 +30,9 @@ type sysfs_tp_fodstatus, fs_type, sysfs_type;
 # Info
 type vendor_sysfs_hardwareinfo, fs_type, sysfs_type;
 
+# LED
+type vendor_sysfs_led_file, fs_type, sysfs_type;
+
 # IR
 type ir_spi_device, dev_type;
 
