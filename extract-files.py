@@ -76,18 +76,24 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libpowercallback.so',
         'vendor/lib64/libpowercore.so',
         'vendor/lib64/libpsmoptfeature.so',
-        'vendor/lib64/libsdmclient.so',
         'vendor/lib64/libstandbyfeature.so',
         'vendor/lib64/libvideooptfeature.so',
         'vendor/lib64/libxlog.so',
         'vendor/lib64/soundfx/libquasar.so',
     ): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v36.so'),
+    # patchelf 0.18 (the extract_utils default) relocates this blob's program
+    # header table to a vaddr inconsistent with its LOAD segments; bionic then
+    # rejects it with "missing PT_DYNAMIC". 0.9 patches it correctly.
+    'vendor/lib64/libsdmclient.so': blob_fixup()
+        .patchelf_version('0_9')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v36.so'),
      (
        'odm/lib64/hw/displayfeature.default.so',
        'odm/lib64/libadaptivehdr.so',
        'odm/lib64/libcolortempmode.so',
        'odm/lib64/libdither.so',
+       'odm/lib64/libdynamicelvss.so',
        'odm/lib64/libflatmode.so',
        'odm/lib64/libhistprocess.so',
        'odm/lib64/libmiBrightness.so',
