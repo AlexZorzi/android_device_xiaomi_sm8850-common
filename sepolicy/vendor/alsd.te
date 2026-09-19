@@ -1,0 +1,20 @@
+# Copyright (C) 2026 Alex Zorzi <info@alexzorzi.it>
+# SPDX-License-Identifier: Apache-2.0
+
+type alsd, domain;
+type alsd_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(alsd)
+
+# Drives the under-display ALS panel compensation in citsensorservice.
+binder_use(alsd)
+binder_call(alsd, vendor_hal_citsensorservice_xiaomi_default)
+allow alsd vendor_hal_citsensorservice_xiaomi_service:service_manager find;
+
+# Reads the live panel brightness to hand to setBrightness().
+# /sys/class/backlight/panel0-backlight is a symlink into /sys/devices, and the
+# directory it lands in carries vendor_sysfs_graphics, so the search permission
+# is needed on that type as well as on plain sysfs.
+allow alsd sysfs:dir search;
+allow alsd vendor_sysfs_graphics:dir search;
+allow alsd vendor_sysfs_graphics:file r_file_perms;
