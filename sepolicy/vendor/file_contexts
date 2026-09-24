@@ -166,3 +166,7 @@
 /data/vendor/mbnconfig(/.*)? u:object_r:vendor_firmware_data_file:s0
 /vendor/bin/nv_mac u:object_r:vendor_wcnss_service_exec:s0
 /(vendor|system/vendor)/bin/hw/alsd    u:object_r:alsd_exec:s0
+
+# QTI GNSS HAL ships in odm on songyuan; the stock vendor pattern only covers
+# /vendor/bin/hw, so without this it runs unlabelled and never starts.
+/(odm|vendor/odm)/bin/hw/android\.hardware\.gnss-aidl-service-qti    u:object_r:vendor_hal_gnss_qti_exec:s0
