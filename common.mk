@@ -213,14 +213,11 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.consumerir.xml
 
 # Keymint
-PRODUCT_SOONG_NAMESPACES += \
-    hardware/nxp/keymint/generic \
-    hardware/nxp/weaver/generic
-
-PRODUCT_PACKAGES += \
-    android.hardware.security.keymint3-service.strongbox.nxp \
-    android.hardware.weaver-service.nxp
-
+# TEE-only. songyuan's eSE is an ST54 running Thales applets, so the NXP
+# JavaCard StrongBox/Weaver HALs that used to be built here had no applet to
+# talk to: StrongBox was advertised (strongbox_keystore=300) but could not work,
+# and LockSettings refused the NXP weaver. myron stock, myron EvolutionX and
+# nezha LineageOS all ship no StrongBox/Weaver either.
 PRODUCT_PACKAGES += \
     android.hardware.hardware_keystore.xml
 
