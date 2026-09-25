@@ -36,6 +36,8 @@ class Devices : public IDumpable {
     // 0: off, 1: solid, 2: breath
     int mCurrentMode = 0;
     uint8_t mLastBrightness = 0xFF;
+    // ro.vendor.light.white_only: the LEDs are white, so colours are ignored
+    bool mWhiteOnly;
 };
 
 }  // namespace light

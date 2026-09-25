@@ -1,5 +1,6 @@
 #include <Devices.h>
 #include <Utils.h>
+#include <android-base/properties.h>
 #include <unistd.h>
 #include <algorithm>
 #include <iomanip>
@@ -10,7 +11,9 @@ namespace aidl::android::hardware::light {
 static constexpr uint32_t kMaxPeriodMs = 8300;
 static constexpr uint32_t kBreathPhaseMs = 510;
 
-Devices::Devices() = default;
+Devices::Devices()
+    : mWhiteOnly(::android::base::GetBoolProperty("ro.vendor.light.white_only", false)) {}
+
 bool Devices::hasNotificationDevices() const {
     return access((mBasePath + "color").c_str(), W_OK) == 0;
 }
@@ -72,13 +75,20 @@ void Devices::setNotificationState(const State& state) {
         return;
     }
 
-    const uint32_t rgb = (static_cast<uint32_t>(state.color.red) << 16) |
-                         (static_cast<uint32_t>(state.color.green) << 8) | state.color.blue;
-    std::ostringstream color;
-    color << std::uppercase << std::hex << std::setw(6) << std::setfill('0') << rgb;
-
     uint8_t brightness = state.color.brightness ? state.color.brightness : mLastBrightness;
     mLastBrightness = brightness;
+
+    uint32_t rgb = (static_cast<uint32_t>(state.color.red) << 16) |
+                   (static_cast<uint32_t>(state.color.green) << 8) | state.color.blue;
+    if (mWhiteOnly) {
+        // Every channel is a white LED here, so a colour would only light some
+        // of them. Light all of them at the colour's intensity instead.
+        const int level = std::max({state.color.red, state.color.green, state.color.blue});
+        brightness = static_cast<uint8_t>(std::max(1, brightness * level / 0xFF));
+        rgb = 0xFFFFFF;
+    }
+    std::ostringstream color;
+    color << std::uppercase << std::hex << std::setw(6) << std::setfill('0') << rgb;
 
     const auto& timed = state.effect.timed;
     const bool blink =
@@ -110,8 +120,8 @@ void Devices::setNotificationState(const State& state) {
 }
 
 void Devices::dump(int fd) const {
-    dprintf(fd, "AW21024 path: %s, available: %d, currentMode: %d, lastBrightness: %u\n",
-            mBasePath.c_str(), hasNotificationDevices(), mCurrentMode, mLastBrightness);
+    dprintf(fd, "AW21024 path: %s, available: %d, whiteOnly: %d, currentMode: %d, lastBrightness: %u\n",
+            mBasePath.c_str(), hasNotificationDevices(), mWhiteOnly, mCurrentMode, mLastBrightness);
 }
 
 }  // namespace aidl::android::hardware::light

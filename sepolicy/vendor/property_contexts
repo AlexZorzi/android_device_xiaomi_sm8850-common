@@ -244,3 +244,6 @@ ro.vendor.touch.touchscheduler.enable  u:object_r:vendor_touchfeature_prop:s0
 ro.vendor.touchfeature.type            u:object_r:vendor_touchfeature_prop:s0
 vendor.panel.                          u:object_r:vendor_panel_info_prop:s0
 vendor.touchfeature.                   u:object_r:vendor_touchfeature_prop:s0
+
+# Lights
+ro.vendor.light.white_only u:object_r:vendor_light_prop:s0 exact bool
