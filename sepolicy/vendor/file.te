@@ -65,3 +65,6 @@ type vendor_data_touchreport_file, data_file_type, file_type;
 
 # Wlan
 type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
+
+# AW21024 rear LED (K100 Pro / Pro Max)
+type vendor_sysfs_led_file, fs_type, sysfs_type;
