@@ -1,0 +1,3 @@
+# The proxy publishes VM state and flags MiTEE ready (vendor.mitee_vm.boot_completed)
+set_prop(vendor_qvirt_proxyclient, vendor_mitee_prop)
+set_prop(vendor_qvirt_proxyclient, vendor_mi_qvirtmgr_prop)

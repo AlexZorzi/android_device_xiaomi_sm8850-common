@@ -39,3 +39,6 @@ vendor_public_prop(vendor_thermal_normal_prop)
 vendor_restricted_prop(vendor_panel_info_prop)
 vendor_restricted_prop(vendor_touch_hostprocess_prop)
 vendor_restricted_prop(vendor_touchfeature_prop)
+# MiTEE (Xiaomi TEE in the oemvm) and Qualcomm VM state
+vendor_restricted_prop(vendor_mitee_prop)
+vendor_internal_prop(vendor_mi_qvirtmgr_prop)

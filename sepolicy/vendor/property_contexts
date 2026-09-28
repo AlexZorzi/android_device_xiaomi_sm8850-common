@@ -247,3 +247,12 @@ vendor.touchfeature.                   u:object_r:vendor_touchfeature_prop:s0
 
 # Lights
 ro.vendor.light.white_only u:object_r:vendor_light_prop:s0 exact bool
+
+# MiTEE / VM state (stock: mitee_ree sepolicy)
+ro.boot.tee_type                      u:object_r:vendor_mitee_prop:s0 exact string
+ro.vendor.mitee_support               u:object_r:vendor_mitee_prop:s0 exact string
+vendor.mitee_vm.boot_completed        u:object_r:vendor_mitee_prop:s0 exact string
+vendor.mitee_vm.rpmb_state            u:object_r:vendor_mitee_prop:s0 exact string
+vendor.teefs_state                    u:object_r:vendor_mitee_prop:s0 exact string
+vendor.qvirtmgr.oemvm.status          u:object_r:vendor_mi_qvirtmgr_prop:s0 exact string
+vendor.qvirtmgr.trustedvm.status      u:object_r:vendor_mi_qvirtmgr_prop:s0 exact string
