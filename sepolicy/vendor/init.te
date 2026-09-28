@@ -17,3 +17,6 @@ allow init vendor_sysfs_perf:file rw_file_perms;
 allow vendor_init minidump_data_file:dir create_dir_perms;
 allow vendor_init minidump_data_file:file create_file_perms;
 allow vendor_init vendor_sysfs_perf:file rw_file_perms;
+# MiTEE
+allow vendor_init mitee_sfs_file:dir create_dir_perms;
+set_prop(vendor_init, vendor_mitee_prop)

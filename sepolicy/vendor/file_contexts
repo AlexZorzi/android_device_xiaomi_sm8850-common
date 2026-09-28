@@ -178,3 +178,11 @@
 # Xiaomi VM images (MiTEE oemvm, Qualcomm trustedvm)
 /(odm|vendor/odm)/firmware_oemvm(/.*)?    u:object_r:vendor_vm_file:s0
 /(odm|vendor/odm)/firmware_qtvm(/.*)?     u:object_r:vendor_vm_file:s0
+
+# MiTEE
+/(odm|vendor/odm)/bin/miteelog                  u:object_r:tee_exec:s0
+/(odm|vendor/odm)/bin/tee-supplicant            u:object_r:tee_exec:s0
+/data/vendor/mitee(/.*)?                        u:object_r:mitee_data_file:s0
+/dev/tee0                                       u:object_r:mitee_client_device:s0
+/dev/teepriv0                                   u:object_r:mitee_client_device:s0
+/mnt/vendor/persist/mitee/data(/.*)?            u:object_r:mitee_sfs_file:s0

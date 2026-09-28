@@ -10,3 +10,5 @@ type vendor_fingerprint_device, dev_type;
 
 # Touchfeature
 type touchfeature_device, dev_type; 
+# MiTEE
+type mitee_client_device, dev_type;
