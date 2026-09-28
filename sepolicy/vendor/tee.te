@@ -8,6 +8,7 @@ allow tee mitee_data_file:dir create_dir_perms;
 allow tee mitee_data_file:file create_file_perms;
 allow tee mitee_sfs_file:dir create_dir_perms;
 allow tee mitee_sfs_file:file create_file_perms;
+allow tee proc_mitee_log:file r_file_perms;
 allow tee self:capability { chown dac_override setgid setuid };
 set_prop(tee, vendor_mitee_prop)
 allow tee kmsg_device:chr_file w_file_perms;
