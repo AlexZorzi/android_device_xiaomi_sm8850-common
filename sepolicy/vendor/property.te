@@ -42,3 +42,7 @@ vendor_restricted_prop(vendor_touchfeature_prop)
 # MiTEE (Xiaomi TEE in the oemvm) and Qualcomm VM state
 vendor_restricted_prop(vendor_mitee_prop)
 vendor_internal_prop(vendor_mi_qvirtmgr_prop)
+
+# Face
+vendor_restricted_prop(vendor_miface_prop)
+vendor_internal_prop(vendor_miface_debug_prop)

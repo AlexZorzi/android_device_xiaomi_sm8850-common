@@ -256,3 +256,11 @@ vendor.mitee_vm.rpmb_state            u:object_r:vendor_mitee_prop:s0 exact stri
 vendor.teefs_state                    u:object_r:vendor_mitee_prop:s0 exact string
 vendor.qvirtmgr.oemvm.status          u:object_r:vendor_mi_qvirtmgr_prop:s0 exact string
 vendor.qvirtmgr.trustedvm.status      u:object_r:vendor_mi_qvirtmgr_prop:s0 exact string
+
+# Face
+persist.vendor.debug.miface.        u:object_r:vendor_miface_debug_prop:s0
+persist.vendor.miface.              u:object_r:vendor_miface_prop:s0
+ro.vendor.debug.miface.             u:object_r:vendor_miface_debug_prop:s0
+ro.vendor.miface.                   u:object_r:vendor_miface_prop:s0
+vendor.debug.miface.                u:object_r:vendor_miface_debug_prop:s0
+vendor.miface.                      u:object_r:vendor_miface_prop:s0

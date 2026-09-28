@@ -20,3 +20,4 @@ allow vendor_init vendor_sysfs_perf:file rw_file_perms;
 # MiTEE
 allow vendor_init mitee_sfs_file:dir create_dir_perms;
 set_prop(vendor_init, vendor_mitee_prop)
+set_prop(vendor_init, vendor_miface_prop)
